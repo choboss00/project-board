@@ -27,10 +27,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-        default_batch_fetch_size: 100 # 1 + N ?? ?? ( 100 ?? bulk ?? ??? ??? )
-  h2:
-    console:
-      enabled: false
+        default_batch_fetch_size: 100 # 1 + N 문제 해결 ( 100 개를 bulk 해서 한번에 가져감 )
   sql:
     init:
       mode: always
