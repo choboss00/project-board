@@ -1,5 +1,6 @@
 package com.fastcampus.fastcampusprojectboard.controller;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,62 +21,63 @@ class ArticleControllerTest {
         this.mvc = mvc;
     }
 
+    @Disabled("구현 중")
     @Test
     @DisplayName("[view] [GET] 게시글 리스트 페이지 - 정상 호출")
     void givenNothing_whenRequestingArticlesView_thenReturnsArticlesView() throws Exception {
         // given
 
-        // when
-
-        // then
+        // when && then
         mvc.perform(get("/articles"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/index"))
                 .andExpect(model().attributeExists("articles"));
 
     }
 
+    @Disabled("구현 중")
     @Test
     @DisplayName("[view] [GET] 게시글 상세 페이지 - 정상 호출")
     void givenNothing_whenRequestingArticlesView_thenReturnsArticlesViewDetails() throws Exception {
         // given
 
-        // when
-
-        // then
+        // when && then
         mvc.perform(get("/articles/1"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
-                .andExpect(model().attributeExists("articles"));
+                .andExpect(view().name("articles/detail"))
+                .andExpect(model().attributeExists("articles"))
+                .andExpect(model().attributeExists("articleComments"));
 
     }
 
+    @Disabled("구현 중")
     @Test
     @DisplayName("[view] [GET] 게시글 검색 전용 페이지 - 정상 호출")
     void givenNothing_whenRequestingArticlesSearchView_thenReturnsArticlesSearchView() throws Exception {
         // given
 
-        // when
-
-        // then
+        // when && then
         mvc.perform(get("/articles/search"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/search"))
                 .andExpect(model().attributeExists("articles"));
 
     }
 
+    @Disabled("구현 중")
     @Test
     @DisplayName("[view] [GET] 게시글 해시태그 전용 검색 페이지 - 정상 호출")
     void givenNothing_whenRequestingArticlesHashtagSearchView_thenReturnsArticlesHashtagSearchView() throws Exception {
         // given
 
-        // when
-
-        // then
+        // when && then
         mvc.perform(get("/articles/search-hashtag"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.TEXT_HTML))
+                .andExpect(view().name("articles/search-hastag"))
                 .andExpect(model().attributeExists("articles"));
 
     }
