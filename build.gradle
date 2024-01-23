@@ -33,6 +33,7 @@ dependencies {
 	runtimeOnly 'mysql:mysql-connector-java:8.0.32'
 	implementation 'org.springframework.boot:spring-boot-starter-data-rest'
 	implementation 'org.springframework.data:spring-data-rest-hal-explorer'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
 	// querydsl 설정
 	implementation 'com.querydsl:querydsl-jpa'
@@ -41,6 +42,12 @@ dependencies {
 	annotationProcessor "com.querydsl:querydsl-apt:${dependencyManagement.importedProperties['querydsl.version']}:jpa"
 	annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 	annotationProcessor "jakarta.annotation:jakarta.annotation-api"
+
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+	// spring security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 }
 
 tasks.named('test') {
